@@ -22,7 +22,8 @@ pdf_files = [os.path.join(dir_pdfs, f)
      
 
 def upload_single_pdf(file_path: str, vector_store_id: str):
-    # função para fazer o upload de um único arquivo PDF para o vector store
+    # função para fazer o upload de um único arquivo PDF para o vector store (banco de dados que armazena vetores de embeddings)
+
     file_name = os.path.basename(file_path)
     try:
         file_response = client.files.create(file=open(file_path, 'rb'), 
@@ -118,6 +119,7 @@ def response_output(query, history):
         with concurrent.futures.ThreadPoolExecutor() as executor: # cria um executor para rodar a função em paralelo
           future = executor.submit(get_response)
           response = future.result(timeout=30)
+
         # verifica se veio resposta relevante
         if (len(response.output) > 1        # se o tamanho da resposta for maior que 1
             and hasattr(response, "output")     # se a resposta tiver o atributo output 
@@ -145,7 +147,7 @@ if __name__ == "__main__":
     demo = gr.ChatInterface(response_output, 
                             type="messages",
                             title="Assistente virtual da Coordenação de Ensino do CIn",
-                            description="Um assistente virtual para ajudar com perguntas relacionadas à Coordenação de Ensino do CIn-UFPE. Caso eu não saiba responder a resposta, informo que está fora do meu escopo.")
+                            description="Um assistente virtual para ajudar com perguntas relacionadas à Coordenação de Ensino do CIn-UFPE. Voltado para discentes, docentes ou qualquer outra pessoa que tenha dúvidas acercca das especificidades da Coordenação. O Chat é treinado com PDFs que contém todo o conteúdo da página online da Coordenação, por isso, caso não saiba responder a pergunta feita pelo usuário, informa que está fora do escopo.")
     
 
     demo.launch(share=True)
