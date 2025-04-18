@@ -1,6 +1,8 @@
 # Assistente virtual da Coordenação de Ensino do CIn
 ### Um assistente virtual para ajudar com perguntas relacionadas à Coordenação de Ensino do CIn-UFPE. Voltado para discentes, docentes ou qualquer outra pessoa que tenha dúvidas acercca das especificidades da Coordenação. O Chat é treinado com PDFs que contém todo o conteúdo da página online da Coordenação, por isso, caso não saiba responder a pergunta feita pelo usuário, informa que está fora do escopo.
 
+Aqui você encontra o vídeo com a explicação: https://drive.google.com/file/d/1QsqP03jeLo28M5aaFyC3fFxUBMQeoND3/view?usp=drive_link
+
 ## Funcionalidades:
 - Respostas em português
 - Interface gráfica (via Gradio)
