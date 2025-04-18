@@ -1,54 +1,88 @@
-# Assistente virtual da Coordenação de Ensino do CIn
-### Um assistente virtual para ajudar com perguntas relacionadas à Coordenação de Ensino do CIn-UFPE. Voltado para discentes, docentes ou qualquer outra pessoa que tenha dúvidas acercca das especificidades da Coordenação. O Chat é treinado com PDFs que contém todo o conteúdo da página online da Coordenação, por isso, caso não saiba responder a pergunta feita pelo usuário, informa que está fora do escopo.
+# 🤖 Assistente Virtual da Coordenação de Ensino do CIn/UFPE
 
-Aqui você encontra o vídeo com a explicação: https://drive.google.com/file/d/1QsqP03jeLo28M5aaFyC3fFxUBMQeoND3/view?usp=drive_link
+Um assistente virtual inteligente que utiliza IA para responder dúvidas baseadas nos documentos oficiais da Coordenação de Ensino do Centro de Informática da UFPE.
 
-## Funcionalidades:
-- Respostas em português
-- Interface gráfica (via Gradio)
+## 📌 Visão Geral
 
-## Estrutura do projeto:
-├── .gitignore 
-├── CRIACOMP_Assistente_Virtual_com_OpenAI_Responses_e_Gradio.ipynb 
-├── LICENSE 
-├── main.py 
-├── README.md 
-├── requirements.txt
-├── input_pdfs/ 
-  │ ├── Ata Equivalencias_novo perfil SI.pdf 
-  │ ├── Plano Pedagógico Curso Ciência da Computação 2024.pdf 
-  │ ├── Plano Pedagógico Curso Engenharia da Computação 2024.pdf 
-  │ ├── Plano Pedagógico Curso Sistemas de Informação 2024.pdf 
-  │ ├── Ata Equivalencias novo perfil EC.pdf
-  │ ├── perguntas frequentes.pdf
-  │ ├── Requerimento Migracao Ciência da Computação v2.pdf 
-  │ ├── Requerimento Migracao Ciência da Computação v2.pdf
-  │ └── Requerimento Migracao Ciência da Computação v2.pdf
+O assistente foi desenvolvido para:
+- Auxiliar discentes, docentes e servidores
+- Responder dúvidas sobre procedimentos acadêmicos
+- Fornecer informações precisas baseadas em documentos oficiais
+- Filtrar perguntas fora do escopo acadêmico
 
-## Pré-requisitos
+**Vídeo Demonstrativo:** [Clique para assistir](https://drive.google.com/file/d/1QsqP03jeLo28M5aaFyC3fFxUBMQeoND3/view?usp=drive_link)
 
-- Python 3.8 ou superior
-- Chave de API da OpenAI (que você pode armazenar no arquivo .venv)
-- Dependências listadas no arquivo `requirements.txt`
+## 🚀 Funcionalidades Principais
 
-## Instalação
+| Feature | Descrição |
+|---------|-----------|
+| **Busca Semântica** | Encontra respostas mesmo com palavras diferentes das usadas nos documentos |
+| **Contexto de Conversa** | Mantém o histórico do diálogo para respostas coerentes |
+| **Filtro Inteligente** | Identifica perguntas fora do escopo acadêmico |
+| **Processamento Rápido** | Responde em segundos mesmo com grandes documentos |
 
-1. Clone este repositório:
-   git clone https://github.com/Mariana-Marinho/criacomp.git
-   cd seu-repositorio
+## 🗂️ Estrutura do Projeto
 
-2. Crie um ambiente virtual e ative-o:
+```bash
+.
+├── .gitignore
+├── main.py                  # Script principal
+├── requirements.txt         # Dependências
+├── LICENSE
+├── README.md
+├── input_pdfs/              # Documentos oficiais
+│   ├── Atas_Equivalencias/
+│   ├── Planos_Pedagogicos/
+│   └── Requerimentos/
+└── .env                     # Configurações sensíveis
+```
+
+# ⚙️ Pré-requisitos
+
+- **Python 3.8 ou superior**  
+  [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/downloads/)
+
+- **Chave de API da OpenAI**  
+  [Obtenha sua chave](https://platform.openai.com/api-keys)
+
+---
+
+# 🛠️ Instalação
+
+1. **Clone o repositório**:
+   ```bash
+   git clone https://github.com/Mariana-Marinho/cin-coordenacao-chatbot.git
+   cd cin-coordenacao-chatbot
+   ```
+
+2. **Crie um ambiente virtual e ative-o**:
+    ```bash
     python -m venv .venv
     source .venv/bin/activate   # No Windows: .venv\Scripts\activate
+    ```
 
 3. Instale as dependências:
+    ```bash
     pip install -r requirements.txt
+    ```
 
 4. Configure a chave da OpenAI: crie um arquivo .venv na raiz do projeto e adicione
+    ```bash
     OPENAI_API_KEY=sua_chave_openai
+    ```
 
-5. Execute o script no terminal
-    python [main.py]
+# 🖥️ Como Executar
 
-## Interação com o Chatbot
-Ao executar o comando 5, no terminal será informado o endereço em que o projeto estará pronto para uso (http://127.0.0.1:5000). Ao acessar o endereço, você já pode interagir com o Chatbot fazendo perguntas, como "O que faz a Coordenação de Ensino?" "É possível fazer migração do perfil curricular antigo para o novo?" "Quais serão minhas qualificações se me formar em Engenharia da Computação no CIn?". Contudo, caso faça perguntas cuja resposta não conste nas informações dadas pela Coordenação de Ensino, o Chatbot informará que não sabe responder.
+```bash
+python main.py
+```
+
+# ✅ O sistema irá:
+
+1. Processar automaticamente todos os PDFs da pasta input_pdfs
+
+2. Iniciar a interface web no endereço:
+```bash
+http://127.0.0.1:7860
+```
+Ao acessar o endereço, você já pode interagir com o Chatbot fazendo perguntas, como "O que faz a Coordenação de Ensino?" "É possível fazer migração do perfil curricular antigo para o novo?" "Quais serão minhas qualificações se me formar em Engenharia da Computação no CIn?". Contudo, caso faça perguntas cuja resposta não conste nas informações dadas pela Coordenação de Ensino, o Chatbot informará que não sabe responder.
